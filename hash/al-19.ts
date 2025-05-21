@@ -4,11 +4,7 @@ export function polynomialHash(str: string) {
 
   let hashValue = 0;
   for (let i = 0; i < str.length; i++) {
-    console.log(
-      "hashValue * p + str.charCodeAt(i): ",
-      hashValue * p + str.charCodeAt(i)
-    );
-    hashValue = (hashValue * p + str.charCodeAt(i)) % m;
+    hashValue = (hashValue * p + str[i].charCodeAt(0)) % m;
   }
 
   return hashValue;
