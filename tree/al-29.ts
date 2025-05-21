@@ -1,0 +1,34 @@
+export function solution(enroll, referral, seller, amount) {
+  let parent = {};
+  let total = {};
+
+  for (let i = 0; i < enroll.length; i++) {
+    const en = enroll[i];
+    parent[en] = referral[i];
+    total[en] = 0;
+  }
+
+  for (let i = 0; i < seller.length; i++) {
+    let money = amount[i] * 100;
+    let curName = seller[i];
+
+    while (money > 0 && curName !== "") {
+      const percent10 = Math.floor(money / 10);
+      total[curName] += money - percent10;
+      curName = parent[curName];
+      money = percent10;
+    }
+  }
+
+  const result = enroll.map((name) => total[name]);
+  return result;
+}
+
+console.log(
+  solution(
+    ["john", "mary", "edward", "sam", "emily", "jaimie", "tod", "young"],
+    ["-", "-", "mary", "edward", "mary", "mary", "jaimie", "edward"],
+    ["young", "john", "tod", "emily", "mary"],
+    [12, 4, 2, 5, 10]
+  )
+);
