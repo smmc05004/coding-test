@@ -1,4 +1,4 @@
-function solution(s) {
+export function solution(s) {
   const stack: string[] = [];
 
   for (const c of s) {
@@ -13,5 +13,5 @@ function solution(s) {
   return result;
 }
 
-solution("baabaa");
-solution("cdcd");
+console.log(solution("baabaa"));
+console.log(solution("cdcd"));
