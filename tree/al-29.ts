@@ -20,6 +20,18 @@ export function solution(enroll, referral, seller, amount) {
     }
   }
 
+  // 더 빠름
+  // const profitArr = Array(seller.length).fill(0);
+  // for (let i = 0; i < enroll.length; i++) {
+  //   const money = total[enroll[i]];
+
+  //   if (!money) continue;
+
+  //   profitArr[i] = money;
+  // }
+
+  // return profitArr;
+
   const result = enroll.map((name) => total[name]);
   return result;
 }
@@ -32,11 +44,11 @@ console.log(
     [12, 4, 2, 5, 10]
   )
 );
-console.log(
-  solution(
-    ["john", "mary", "edward", "sam", "emily", "jaimie", "tod", "young"],
-    ["-", "-", "mary", "edward", "mary", "mary", "jaimie", "edward"],
-    ["sam", "emily", "jaimie", "edward"],
-    [2, 3, 5, 4]
-  )
-);
+// console.log(
+//   solution(
+//     ["john", "mary", "edward", "sam", "emily", "jaimie", "tod", "young"],
+//     ["-", "-", "mary", "edward", "mary", "mary", "jaimie", "edward"],
+//     ["sam", "emily", "jaimie", "edward"],
+//     [2, 3, 5, 4]
+//   )
+// );
