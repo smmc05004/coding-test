@@ -29,16 +29,21 @@ function appendToQueue(ny, nx, k, time, visited, q) {
 }
 
 export function solution(maps) {
-  const n = maps.length; // rows
-  const m = maps[0].length; // cols
+  const n = maps.length; // rows 세로 길이
+  const m = maps[0].length; // cols 가로 길이
   const visited = Array.from(Array(n), () =>
     Array(m)
       .fill(false)
       .map(() => Array(2).fill(false))
   );
 
-  const dy = [-1, 1, 0, 0];
-  const dx = [0, 0, -1, 1];
+  const direction = [
+    [-1, 0],
+    [1, 0],
+    [0, -1],
+    [0, 1],
+  ];
+
   const q = new Queue();
 
   let endY = -1;
@@ -57,6 +62,7 @@ export function solution(maps) {
       }
     }
   }
+  console.log("visited: ", visited);
 
   while (!q.isEmpty()) {
     const [y, x, k, time] = q.pop();
@@ -66,8 +72,9 @@ export function solution(maps) {
     }
 
     for (let i = 0; i < 4; i++) {
-      const ny = y + dy[i];
-      const nx = x + dx[i];
+      const [dy, dx] = direction[i];
+      const ny = y + dy;
+      const nx = x + dx;
 
       if (!isValidMove(ny, nx, n, m, maps)) {
         continue;
@@ -78,7 +85,6 @@ export function solution(maps) {
       } else {
         appendToQueue(ny, nx, k, time, visited, q);
       }
-      console.log("visited: ", visited);
     }
   }
 

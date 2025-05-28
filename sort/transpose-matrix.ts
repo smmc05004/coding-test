@@ -1,17 +1,16 @@
 export function matrix(arr) {
-  const answer: number[][] = [];
-
   const rows = arr.length;
   const columns = arr[0].length;
 
-  for (let i = 0; i < columns; i++) {
-    const row: number[] = [];
-    for (let j = 0; j < rows; j++) {
-      row.push(arr[j][i]);
+  const transpose = Array.from({ length: rows }, () => Array(columns).fill(0));
+
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < columns; j++) {
+      transpose[j][i] = arr[i][j];
     }
-    answer.push(row);
   }
-  return answer;
+
+  return transpose;
 }
 
 console.log(

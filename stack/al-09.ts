@@ -1,3 +1,7 @@
+// export function solution(decimal) {
+//   return decimal.toString(2);
+// }
+
 export function solution(decimal) {
   const stack: number[] = [];
 
@@ -7,6 +11,9 @@ export function solution(decimal) {
 
     decimal = Math.floor(decimal / 2);
   }
+
+  // 아래 코드가 더 효율적
+  // return stack.reverse().join("");
 
   let answer = "";
   while (stack.length > 0) {

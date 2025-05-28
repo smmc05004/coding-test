@@ -1,3 +1,18 @@
+// export function solution(topping) {
+//   let count = 0;
+
+//   for (let i = 0; i < topping.length - 1; i++) {
+//     const a = topping.slice(0, i);
+//     const b = topping.slice(i);
+
+//     if (new Set(a).size === new Set(b).size) {
+//       count++;
+//     }
+//   }
+
+//   return count;
+// }
+
 export function solution(topping) {
   let answer = 0;
 

@@ -10,7 +10,7 @@ export function countSort(arr, k) {
   return table;
 }
 
-function solution(arr, target) {
+export function solution(arr, target) {
   const hashtable = countSort(arr, target);
 
   for (const num of arr) {

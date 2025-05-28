@@ -12,7 +12,7 @@ export function solution(enroll, referral, seller, amount) {
     let money = amount[i] * 100;
     let curName = seller[i];
 
-    while (money > 0 && curName !== "") {
+    while (money > 0 && curName !== "-") {
       const percent10 = Math.floor(money / 10);
       total[curName] += money - percent10;
       curName = parent[curName];
@@ -30,5 +30,13 @@ console.log(
     ["-", "-", "mary", "edward", "mary", "mary", "jaimie", "edward"],
     ["young", "john", "tod", "emily", "mary"],
     [12, 4, 2, 5, 10]
+  )
+);
+console.log(
+  solution(
+    ["john", "mary", "edward", "sam", "emily", "jaimie", "tod", "young"],
+    ["-", "-", "mary", "edward", "mary", "mary", "jaimie", "edward"],
+    ["sam", "emily", "jaimie", "edward"],
+    [2, 3, 5, 4]
   )
 );

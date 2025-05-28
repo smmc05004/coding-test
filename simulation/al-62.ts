@@ -1,29 +1,25 @@
-// export function solution(arr, n) {
-//   let result: number[][] = arr.map((row) => [...row]);
+// export function rotate(arr) {
+//   const rows = arr.length;
+//   const columns = arr[0].length;
 
-//   // 90도 회전
-//   function rotate(copiedArr) {
-//     const answer: number[][] = [];
+//   const rotated = Array.from({ length: rows }, () => Array(columns).fill(0));
 
-//     const rows = copiedArr.length;
-//     const colums = copiedArr[0].length;
-
-//     for (let i = 0; i < colums; i++) {
-//       const row: number[] = [];
-//       for (let j = rows - 1; j > -1; j--) {
-//         row.push(copiedArr[j][i]);
-//       }
-//       answer.push(row);
+//   for (let i = 0; i < rows; i++) {
+//     for (let j = 0; j < columns; j++) {
+//       rotated[j][columns - 1 - i] = arr[i][j];
 //     }
-
-//     return answer;
 //   }
+
+//   return rotated;
+// }
+// export function solution(arr, n) {
+//   let copy = arr.map((row) => [...row]);
 
 //   for (let i = 0; i < n; i++) {
-//     result = rotate(result.map((row) => [...row]));
+//     copy = rotate(copy);
 //   }
 
-//   return result;
+//   return copy;
 // }
 
 export function solution(arr, n) {
@@ -48,6 +44,18 @@ export function solution(arr, n) {
 
   return rotated;
 }
+
+console.log(
+  solution(
+    [
+      [1, 2, 3, 4],
+      [5, 6, 7, 8],
+      [9, 10, 11, 12],
+      [13, 14, 15, 16],
+    ],
+    1
+  )
+);
 
 console.log(
   solution(

@@ -1,29 +1,19 @@
-// export function solution(s: string) {
+// export function solution(s) {
+//   let str = s;
+
 //   let zeroCount = 0;
 //   let tryCount = 0;
 
-//   function convertToBinary(num) {
-//     let str = "";
-
-//     while (num > 0) {
-//       str = (num % 2) + str;
-//       num = Math.floor(num / 2);
-//     }
-
-//     return str;
-//   }
-
-//   while (s !== "1") {
-//     const s1 = s.replace(/0/g, "");
-//     const oneLength = s1.length;
-
-//     const s0 = s.replace(/1/g, "");
-//     const zeroLength = s0.length;
-
-//     s = convertToBinary(oneLength);
-
-//     zeroCount += zeroLength;
+//   while (str !== "1") {
 //     tryCount++;
+
+//     const filter0 = str.replace(/1/g, "");
+//     zeroCount += filter0.length;
+
+//     const filter1 = str.replace(/0/g, "");
+
+//     const binary = filter1.length.toString(2);
+//     str = binary;
 //   }
 
 //   return [tryCount, zeroCount];
